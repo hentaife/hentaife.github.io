@@ -1,0 +1,9 @@
+.DS_Store
+*.swp
+*.swo
+*.swn
+.sw*
+*.out
+.idea
+Thumbs.db
+.project
