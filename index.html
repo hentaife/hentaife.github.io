@@ -3,8 +3,143 @@
 <head>
   <meta charset="UTF-8">
   <title>hentaife</title>
+  <style type="text/css">
+  .main {
+    width: 300px;
+    margin: 100px auto;
+    position: relative;
+  }
+
+  @keyframes show-in {
+    from {
+      opacity: 0;
+      transform: rotate(-10deg);
+    }
+
+    to {
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+  }
+
+  .box-wraper {
+    width: 100%;
+    height: 521px;
+    position: absolute;
+    animation: show-in 0.4s;
+    transform-origin: 50%;
+  }
+
+  .box {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    transform-origin: 50%;
+  }
+
+  .box:nth-child(1) {
+    transform: rotate(0deg);
+  }
+  .box:nth-child(2) {
+    transform: rotate(30deg);
+  }
+  .box:nth-child(3) {
+    transform: rotate(60deg);
+  }
+  .box:nth-child(4) {
+    transform: rotate(90deg);
+  }
+  .box:nth-child(5) {
+    transform: rotate(120deg);
+  }
+  .box:nth-child(6) {
+    transform: rotate(150deg);
+  }
+
+  .lines .box {
+    border: 1px solid #eee;
+    border-left: 0;
+    border-right: 0;
+  }
+
+  .avaters .box {
+    visibility: hidden;
+  }
+
+  .avatar {
+    visibility: visible;
+    width: 60px;
+    height: 60px;
+    box-sizing: border-box;
+    background: #f4f4f4;
+    border-radius: 60px;
+    position: absolute;
+    z-index: 100;
+    overflow: hidden;
+    cursor: pointer;
+    border: 0;
+    transition: all 0.3s ease;
+  }
+  .avatar:hover {
+    border: 3px solid #333;
+    transform: scale(1.1);
+  }
+  .avatar img {
+    width: 100%;
+    height: 100%;
+  }
+  .avatar:first-child {
+    left: -30px;
+    top: -30px;
+  }
+  .avatar:last-child {
+    right: -30px;
+    bottom: -30px;
+  }
+
+  </style>
 </head>
 <body>
-hello world
+<div class="main initial" id="main">
+
+  <div class="box-wraper lines">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </div>
+
+  <div class="box-wraper avaters">
+    <div class="box">
+      <span class="avatar"><img src="http://tp4.sinaimg.cn/2113729271/180/40063566562/1"></span>
+      <span class="avatar"></span>
+    </div>
+    <div class="box">
+      <span class="avatar"></span>
+      <span class="avatar"></span>
+    </div>
+    <div class="box">
+      <span class="avatar"></span>
+      <span class="avatar"></span>
+    </div>
+    <div class="box">
+      <span class="avatar"></span>
+      <span class="avatar"></span>
+    </div>
+    <div class="box">
+      <span class="avatar"></span>
+      <span class="avatar"></span>
+    </div>
+    <div class="box">
+      <span class="avatar"></span>
+      <span class="avatar"></span>
+    </div>
+  </div>
+</div>
+<script>
+</script>
 </body>
 </html>
