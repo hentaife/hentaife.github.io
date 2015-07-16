@@ -27,7 +27,7 @@
     }
   }
 
-  .box-wraper {
+  .lines {
     width: 300px;
     height: 521px;
     position: absolute;
@@ -40,39 +40,35 @@
     transform-origin: 50%;
   }
 
-  .box {
+  .line-box {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
     position: absolute;
     transform-origin: 50%;
-  }
-
-  .box:nth-child(1) {
-    transform: rotate(0deg);
-  }
-  .box:nth-child(2) {
-    transform: rotate(30deg);
-  }
-  .box:nth-child(3) {
-    transform: rotate(60deg);
-  }
-  .box:nth-child(4) {
-    transform: rotate(90deg);
-  }
-  .box:nth-child(5) {
-    transform: rotate(120deg);
-  }
-  .box:nth-child(6) {
-    transform: rotate(150deg);
-  }
-
-  .lines .box {
     border: 1px solid #eee;
     border-left: 0;
     border-right: 0;
   }
 
+  .line-box:nth-child(1) {
+    transform: rotate(0deg);
+  }
+  .line-box:nth-child(2) {
+    transform: rotate(30deg);
+  }
+  .line-box:nth-child(3) {
+    transform: rotate(60deg);
+  }
+  .line-box:nth-child(4) {
+    transform: rotate(90deg);
+  }
+  .line-box:nth-child(5) {
+    transform: rotate(120deg);
+  }
+  .line-box:nth-child(6) {
+    transform: rotate(150deg);
+  }
 
   .avatar {
     position: absolute;
@@ -176,7 +172,8 @@
     top: 50%;
     margin-top: -30px;
   }
-  #info{
+
+  .info {
     position: absolute;
     box-sizing: border-box;
     overflow: hidden;
@@ -194,13 +191,12 @@
 <body>
 <div class="main initial" id="main">
 
-  <div class="box-wraper lines">
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
+  <div class="lines">
+    <div class="line-box"></div>
+    <div class="line-box"></div>
+    <div class="line-box"></div>
+    <div class="line-box"></div>
+    <div class="line-box"></div>
   </div>
 
   <div class="avatars-wrapper">
@@ -272,7 +268,7 @@
           <img src="images/xiaoxiang.jpg" alt="xiaoxiang">
         </span>
         <div class="card">
-          大家好，我是潇湘！  
+          大家好，我是潇湘！
         </div>
 
       </div>
@@ -330,7 +326,7 @@
       </div>
     </div>
   </div>
-    <div id="info">
+    <div id="info" class="info">
 
     </div>
 
@@ -338,14 +334,14 @@
 
 <script>
 /*定义随机颜色*/
-var color = ['#9FE0F6','#F29C9C','#42A881','#AE7BB3','#B7F0BB','#91BBF2','#F39894','#363940','#979DA6','#B2DBCD'];
+var color = ['#9FE0F6', '#F29C9C', '#42A881', '#AE7BB3', '#B7F0BB', '#91BBF2', '#F39894', '#363940', '#979DA6', '#B2DBCD'];
 var info = document.getElementById('info');
-var avatars_wrapper = document.getElementsByClassName('avatars-wrapper')[0];
+var avatarsWrapper = document.getElementsByClassName('avatars-wrapper')[0];
 
 function addEvent(element, type, listener) {
     type = type.replace(/^on/i, '').toLowerCase();
 
-    var realListener = function (e) {
+    var realListener = function(e) {
         if (typeof listener === 'function') {
             listener.call(element, e);
         }
@@ -357,23 +353,23 @@ function addEvent(element, type, listener) {
     else if (element.attachEvent) {
         element.attachEvent('on' + type, realListener);
     }
-};
+}
 
-function showInfo(event){
+function showInfo(event) {
     e = event || window.event;
-    e.target = event.target || event.srcElement;
-    if(e.target.nodeName.toUpperCase() === 'IMG'){
-        info.innerHTML = e.target.parentNode.parentNode.getElementsByClassName('card')[0].innerHTML;
+    var target = event.target || event.srcElement;
+    if (target.nodeName.toUpperCase() === 'IMG') {
+        info.innerHTML = target.parentNode.parentNode.getElementsByClassName('card')[0].innerHTML;
         info.style.color = color[Math.floor(Math.random() * 10)];
     }
 }
 
-function initInfo () {
+function initInfo() {
   info.innerHTML = '';
 }
 
-addEvent(avatars_wrapper,'mouseover',showInfo);
-addEvent(avatars_wrapper,'mouseout',initInfo);
+addEvent(avatarsWrapper, 'mouseover', showInfo);
+addEvent(avatarsWrapper, 'mouseout', initInfo);
 </script>
 </body>
 </html>
