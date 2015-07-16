@@ -98,12 +98,13 @@
   }
 
   .avatar .card {
+    position: absolute;
     opacity: 0;
   }
 
-  .avatar:hover .card {
-    opacity: 1;
-  }
+  /*.avatar:hover .card {*/
+    /*opacity: 1;*/
+  /*}*/
 
   .avatar img {
     width: 100%;
@@ -175,7 +176,19 @@
     top: 50%;
     margin-top: -30px;
   }
-
+  #info{
+    position: absolute;
+    box-sizing: border-box;
+    overflow: hidden;
+    left: 140px;
+    top: 140px;
+    padding: 40px;
+    width: 380px;
+    height:380px;
+    text-indent: 2em;
+    text-align: center;
+    line-height: 1.5;
+  }
   </style>
 </head>
 <body>
@@ -204,65 +217,30 @@
       <div class="avatar">
 
         <span class="star">
-          <img src="http://7sbnba.com1.z0.glb.clouddn.com/github-head.jpg">
+          <img src="http://7sbnba.com1.z0.glb.clouddn.com/github-head.jpg" alt="creeper">
         </span>
         <div class="card">
+            大家好我是creeper
         </div>
 
       </div>
       <div class="avatar">
 
         <span class="star">
-          <img src="images/nighting.jpg">
+          <img src="images/nighting.jpg" alt="九九">
         </span>
         <div class="card">
+            大家好，我是九九
         </div>
 
       </div>
       <div class="avatar">
 
         <span class="star">
-          <img src="http://tp2.sinaimg.cn/1731433233/180/40021252155/0">
+          <img src="http://tp2.sinaimg.cn/1731433233/180/40021252155/0" alt="candywxt">
         </span>
         <div class="card">
-        </div>
-
-      </div>
-    </div>
-    <div class="avatar-box">
-      <div class="avatar">
-
-        <span class="star">
-          <img src="http://i1.tietuku.com/a4f216ad1dc4f173.jpg">
-        </span>
-        <div class="card">
-        </div>
-
-      </div>
-      <div class="avatar">
-
-        <span class="star">
-          <img src="http://tp1.sinaimg.cn/1767840284/180/5701939528/0">
-        </span>
-        <div class="card">
-        </div>
-
-      </div>
-      <div class="avatar">
-
-        <span class="star">
-          <img src="http://7xi66m.com1.z0.glb.clouddn.com/portrait.jpg">
-        </span>
-        <div class="card">
-        </div>
-
-      </div>
-      <div class="avatar">
-
-        <span class="star">
-          <img src="https://avatars1.githubusercontent.com/u/1272678?v=3&s=460">
-        </span>
-        <div class="card">
+            大家好，我是王欣彤！
         </div>
 
       </div>
@@ -271,9 +249,52 @@
       <div class="avatar">
 
         <span class="star">
-          <img src="http://tp4.sinaimg.cn/2113729271/180/40063566562/1">
+          <img src="http://i1.tietuku.com/a4f216ad1dc4f173.jpg" alt="乃乃">
         </span>
         <div class="card">
+            大家好，我是乃乃！
+        </div>
+
+      </div>
+      <div class="avatar">
+
+        <span class="star">
+          <img src="http://tp1.sinaimg.cn/1767840284/180/5701939528/0" alt="Okiilemon">
+        </span>
+        <div class="card">
+            大家好，我是小涵！
+        </div>
+
+      </div>
+      <div class="avatar">
+
+        <span class="star">
+          <img src="http://7xi66m.com1.z0.glb.clouddn.com/portrait.jpg" alt="芊芊">
+        </span>
+        <div class="card">
+            大家好，我是芊芊！
+        </div>
+
+      </div>
+      <div class="avatar">
+
+        <span class="star">
+          <img src="https://avatars1.githubusercontent.com/u/1272678?v=3s=460" alt="yangmls">
+        </span>
+        <div class="card">
+            大家好，我是杨叔叔！
+        </div>
+
+      </div>
+    </div>
+    <div class="avatar-box">
+      <div class="avatar">
+
+        <span class="star">
+          <img src="http://tp4.sinaimg.cn/2113729271/180/40063566562/1" alt="黑猫">
+        </span>
+        <div class="card">
+            大家好，我是黑猫！
         </div>
 
       </div>
@@ -304,10 +325,50 @@
       </div>
     </div>
   </div>
+    <div id="info">
+
+    </div>
 
 </div>
 
 <script>
+/*定义随机颜色*/
+var color = ['#9FE0F6','#F29C9C','#42A881','#AE7BB3','#B7F0BB','#91BBF2','#F39894','#363940','#979DA6','#B2DBCD']；
+var info = document.getElementById('info');
+var avatars_wrapper = document.getElementsByClassName('avatars-wrapper')[0];
+
+function addEvent(element, type, listener) {
+    type = type.replace(/^on/i, '').toLowerCase();
+
+    var realListener = function (e) {
+        if (typeof listener === 'function') {
+            listener.call(element, e);
+        }
+    };
+
+    if (element.addEventListener) {
+        element.addEventListener(type, realListener, false);
+    }
+    else if (element.attachEvent) {
+        element.attachEvent('on' + type, realListener);
+    }
+};
+
+function showInfo(event){
+    e = event || window.event;
+    e.target = event.target || event.srcElement;
+    if(e.target.nodeName.toUpperCase() === 'IMG'){
+        info.innerHTML = e.target.parentNode.parentNode.getElementsByClassName('card')[0].innerHTML;
+        info.style.color = color[Math.floor(Math.random() * 10)];
+    }
+}
+
+function initInfo () {
+  info.innerHTML = '';
+}
+
+addEvent(avatars_wrapper,'mouseover',showInfo);
+addEvent(avatars_wrapper,'mouseout',initInfo);
 </script>
 </body>
 </html>
