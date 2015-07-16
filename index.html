@@ -5,9 +5,14 @@
   <title>hentaife</title>
   <style type="text/css">
   .main {
-    width: 300px;
-    margin: 100px auto;
-    position: relative;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 660px;
+    height: 660px;
   }
 
   @keyframes show-in {
@@ -23,9 +28,14 @@
   }
 
   .box-wraper {
-    width: 100%;
+    width: 300px;
     height: 521px;
     position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
     animation: show-in 0.4s;
     transform-origin: 50%;
   }
@@ -63,48 +73,107 @@
     border-right: 0;
   }
 
-  .avaters .box {
-    visibility: hidden;
-  }
 
   .avatar {
-    visibility: visible;
-    width: 60px;
-    height: 60px;
-    box-sizing: border-box;
-    background: #f4f4f4;
-    border-radius: 60px;
     position: absolute;
     z-index: 100;
+  }
+
+  .avatar .star {
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
     overflow: hidden;
     cursor: pointer;
     border: 0;
     transition: all 0.3s ease;
+    box-sizing: border-box;
+    background: #f4f4f4;
+    display: inline-block;
   }
-  .avatar:hover {
+
+  .avatar .star:hover {
     border: 3px solid #333;
     transform: scale(1.1);
   }
+
+  .avatar .card {
+    opacity: 0;
+  }
+
+  .avatar:hover .card {
+    opacity: 1;
+  }
+
   .avatar img {
     width: 100%;
     height: 100%;
   }
-  .avatar:first-child {
-    left: -30px;
-    top: -30px;
+
+  .avatars-wrapper {
+    width: 100%;
+    height: 100%;
   }
-  .avatar:last-child {
-    right: -30px;
-    bottom: -30px;
+
+  .avatar-box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
   }
-  .okiilemon {
-    transform: rotate(-120deg);
+
+  .avatar-box:nth-child(1) {
+    width: 581px;
+    height: 360px;
   }
-  .nighting {
-    transform: rotate(-60deg);
+
+  .avatar-box:nth-child(3) {
+    width: 360px;
+    height: 581px;
   }
-  .candy {
-    transform: rotate(-90deg);
+
+  .avatar:nth-child(1) {
+    left: 0;
+    top: 0;
+  }
+
+  .avatar:nth-child(2) {
+    right: 0;
+    top: 0;
+  }
+
+  .avatar:nth-child(3) {
+    left: 0;
+    bottom: 0;
+  }
+
+  .avatar:nth-child(4) {
+    right: 0;
+    bottom: 0;
+  }
+
+  .avatar-box:nth-child(2) .avatar:nth-child(1) {
+    top: 50%;
+    margin-top: -30px;
+  }
+
+  .avatar-box:nth-child(2) .avatar:nth-child(2) {
+    left: 50%;
+    margin-left: -30px;
+  }
+
+  .avatar-box:nth-child(2) .avatar:nth-child(3) {
+    left: 50%;
+    margin-top: -30px;
+  }
+
+  .avatar-box:nth-child(2) .avatar:nth-child(4) {
+    top: 50%;
+    margin-top: -30px;
   }
 
   </style>
@@ -121,33 +190,123 @@
     <div class="box"></div>
   </div>
 
-  <div class="box-wraper avaters">
-    <div class="box">
-      <span class="avatar"><img src="http://tp4.sinaimg.cn/2113729271/180/40063566562/1"></span>
-      <span class="avatar"></span>
+  <div class="avatars-wrapper">
+    <div class="avatar-box">
+      <div class="avatar">
+
+        <span class="star">
+          
+        </span>
+        <div class="card">
+        </div>
+
+      </div>
+      <div class="avatar">
+
+        <span class="star">
+          <img src="http://7sbnba.com1.z0.glb.clouddn.com/github-head.jpg">
+        </span>
+        <div class="card">
+        </div>
+
+      </div>
+      <div class="avatar">
+
+        <span class="star">
+          <img src="images/nighting.jpg">
+        </span>
+        <div class="card">
+        </div>
+
+      </div>
+      <div class="avatar">
+
+        <span class="star">
+          <img src="http://tp2.sinaimg.cn/1731433233/180/40021252155/0">
+        </span>
+        <div class="card">
+        </div>
+
+      </div>
     </div>
-    <div class="box">
-      <span class="avatar"><img src="http://7sbnba.com1.z0.glb.clouddn.com/github-head.jpg"></span>
-      <span class="avatar"></span>
+    <div class="avatar-box">
+      <div class="avatar">
+
+        <span class="star">
+          <img src="http://i1.tietuku.com/a4f216ad1dc4f173.jpg">
+        </span>
+        <div class="card">
+        </div>
+
+      </div>
+      <div class="avatar">
+
+        <span class="star">
+          <img src="http://tp1.sinaimg.cn/1767840284/180/5701939528/0">
+        </span>
+        <div class="card">
+        </div>
+
+      </div>
+      <div class="avatar">
+
+        <span class="star">
+          <img src="http://7xi66m.com1.z0.glb.clouddn.com/portrait.jpg">
+        </span>
+        <div class="card">
+        </div>
+
+      </div>
+      <div class="avatar">
+
+        <span class="star">
+          <img src="https://avatars1.githubusercontent.com/u/1272678?v=3&s=460">
+        </span>
+        <div class="card">
+        </div>
+
+      </div>
     </div>
-    <div class="box">
-      <span class="avatar nighting"><img src="images/nighting.jpg"></span>
-      <span class="avatar"></span>
-    </div>
-    <div class="box">
-	    <span class="avatar candy"><img src="http://tp2.sinaimg.cn/1731433233/180/40021252155/0"></span>
-      <span class="avatar"></span>
-    </div>
-    <div class="box">
-      <span class="avatar"><img src="http://i1.tietuku.com/a4f216ad1dc4f173.jpg"></span>
-      <span class="avatar okiilemon"><img src="http://tp1.sinaimg.cn/1767840284/180/5701939528/0">></span>
-    </div>
-    <div class="box">
-      <span class="avatar"><img src="http://7xi66m.com1.z0.glb.clouddn.com/portrait.jpg"></span>
-      <span class="avatar"></span>
+    <div class="avatar-box">
+      <div class="avatar">
+
+        <span class="star">
+          <img src="http://tp4.sinaimg.cn/2113729271/180/40063566562/1">
+        </span>
+        <div class="card">
+        </div>
+
+      </div>
+      <div class="avatar">
+
+        <span class="star">
+
+        </span>
+        <div class="card">
+        </div>
+
+      </div>
+      <div class="avatar">
+
+        <span class="star">
+        </span>
+        <div class="card">
+        </div>
+
+      </div>
+      <div class="avatar">
+
+        <span class="star">
+        </span>
+        <div class="card">
+        </div>
+
+      </div>
     </div>
   </div>
+
 </div>
+
 <script>
 </script>
 </body>
