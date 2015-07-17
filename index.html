@@ -356,17 +356,40 @@ function addEvent(element, type, listener) {
     }
 }
 
+function trim(str) {
+
+    var trimer = new RegExp("(^[\\s\\t\\xa0\\u3000]+)|([\\u3000\\xa0\\s\\t]+\x24)", "g");
+
+    return String(str).replace(trimer, "");
+
+}
+
 function showInfo(event) {
-    e = event || window.event;
+    var event = event || window.event;
     var target = event.target || event.srcElement;
     if (target.nodeName.toUpperCase() === 'IMG') {
-        info.innerHTML = target.parentNode.parentNode.getElementsByClassName('card')[0].innerHTML;
+        var str = target.parentNode.parentNode.getElementsByClassName('card')[0].innerHTML;
+        showOneByOne(str,event);
         info.style.color = color[Math.floor(Math.random() * 10)];
     }
 }
 
-function initInfo() {
-  info.innerHTML = '';
+function initInfo(event) {
+    var event = event || window.event;
+    showOneByOne('',event);
+}
+
+function showOneByOne(str,event){
+    var i = 0;
+    str = trim(str);
+    var show = function() {
+      console.log(event.type);
+      info.innerHTML = (str.slice(0,i++));
+      if(i <= str.length) {
+          setTimeout(show, 200);
+      }
+    };
+    show();
 }
 
 addEvent(avatarsWrapper, 'mouseover', showInfo);
