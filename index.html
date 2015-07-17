@@ -26,11 +26,13 @@
   @keyframes show-in {
     from {
       opacity: 0;
+      -webkit-transform: rotate(-10deg);
       transform: rotate(-10deg);
     }
 
     to {
       opacity: 1;
+      -webkit-transform: rotate(0deg);
       transform: rotate(0deg);
     }
   }
@@ -45,6 +47,7 @@
     bottom: 0;
     margin: auto;
     animation: show-in 0.4s;
+    -webkit-transform-origin: 50%;
     transform-origin: 50%;
   }
 
@@ -53,6 +56,7 @@
     height: 100%;
     box-sizing: border-box;
     position: absolute;
+    -webkit-transform-origin: 50%;
     transform-origin: 50%;
     border: 1px solid #eee;
     border-left: 0;
@@ -60,21 +64,27 @@
   }
 
   .line-box:nth-child(1) {
+    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   .line-box:nth-child(2) {
+    -webkit-transform: rotate(30deg);
     transform: rotate(30deg);
   }
   .line-box:nth-child(3) {
+    -webkit-transform: rotate(60deg);
     transform: rotate(60deg);
   }
   .line-box:nth-child(4) {
+    -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
   }
   .line-box:nth-child(5) {
+    -webkit-transform: rotate(120deg);
     transform: rotate(120deg);
   }
   .line-box:nth-child(6) {
+    -webkit-transform: rotate(150deg);
     transform: rotate(150deg);
   }
 
@@ -392,14 +402,14 @@ function showOneByOne(str){
     if(timer) {
         clearTimeout(timer);
     }
-    
+
     var show = function() {
       info.innerHTML = (str.slice(0,i++));
       if(i <= str.length) {
           timer = setTimeout(show, 150);
       }
     };
-    
+
     show();
 }
 addEvent(avatarsWrapper, 'mouseover', showInfo);
