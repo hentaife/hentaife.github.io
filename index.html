@@ -334,6 +334,7 @@
 </div>
 
 <script>
+var timer;
 /*定义随机颜色*/
 var color = ['#9FE0F6', '#F29C9C', '#42A881', '#AE7BB3', '#B7F0BB', '#91BBF2', '#F39894', '#363940', '#979DA6', '#B2DBCD'];
 var info = document.getElementById('info');
@@ -367,28 +368,34 @@ function trim(str) {
 function showInfo(event) {
     var event = event || window.event;
     var target = event.target || event.srcElement;
+
     if (target.nodeName.toUpperCase() === 'IMG') {
         var str = target.parentNode.parentNode.getElementsByClassName('card')[0].innerHTML;
-        showOneByOne(str,event);
+        showOneByOne(str);
         info.style.color = color[Math.floor(Math.random() * 10)];
     }
+
 }
 
-function initInfo(event) {
-    var event = event || window.event;
-    showOneByOne('',event);
+function initInfo() {
+    showOneByOne('');
 }
 
-function showOneByOne(str,event){
+function showOneByOne(str){
     var i = 0;
     str = trim(str);
+
+    if(timer) {
+        clearTimeout(timer);
+    }
+    
     var show = function() {
-      console.log(event.type);
       info.innerHTML = (str.slice(0,i++));
       if(i <= str.length) {
-          setTimeout(show, 200);
+          timer = setTimeout(show, 200);
       }
     };
+    
     show();
 }
 
