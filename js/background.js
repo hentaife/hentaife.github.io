@@ -13,13 +13,13 @@ var lastTime;
 var starPic = new Image();
 
 var stars = [];
-var num = 100;
+var num = 120;
 
 function init(){
     can = document.getElementById('canvas');
     ctx = can.getContext('2d');
 
-    w = document.documentElement.offsetWidth;
+    w = document.documentElement.clientWidth;
     h = document.documentElement.clientHeight;
     console.log(w, h);
     can.width = w;
