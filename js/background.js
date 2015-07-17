@@ -14,6 +14,7 @@ var starPic = new Image();
 
 var stars = [];
 var num = 120;
+var dpr = window.devicePixelRatio || 1
 
 function init(){
     can = document.getElementById('canvas');
@@ -98,7 +99,7 @@ starObj.prototype.update = function() {
     }
 };
 starObj.prototype.draw = function () {
-      ctx.drawImage(starPic,this.picNo * 7,0,7,7,this.x,this.y,7,7);
+      ctx.drawImage(starPic,this.picNo * 7,0,7,7,this.x,this.y,7/dpr,7/dpr);
 };
 
 document.body.onload = init;
