@@ -19,9 +19,8 @@ function init(){
     can = document.getElementById('canvas');
     ctx = can.getContext('2d');
 
-    w = document.documentElement.clientWidth;
-    h = document.documentElement.clientHeight;
-    console.log(w, h);
+    w = Math.max(document.body.scrollWidth, document.documentElement.scrollWidth);
+    h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
     can.width = w;
     can.height =h;
 
