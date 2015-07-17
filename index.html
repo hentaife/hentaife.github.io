@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <title>hentaife</title>
   <style type="text/css">
+  body{
+      margin: 0;
+  }
   .main {
     position: absolute;
     left: 0;
@@ -89,7 +92,7 @@
   }
 
   .avatar .star:hover {
-    border: 3px solid #333;
+    border: 2px solid #fff;
     transform: scale(1.1);
   }
 
@@ -97,10 +100,6 @@
     position: absolute;
     opacity: 0;
   }
-
-  /*.avatar:hover .card {*/
-    /*opacity: 1;*/
-  /*}*/
 
   .avatar img {
     width: 100%;
@@ -332,7 +331,7 @@
     </div>
 
 </div>
-
+<canvas id="canvas"></canvas>
 <script>
 var timer;
 /*定义随机颜色*/
@@ -374,7 +373,6 @@ function showInfo(event) {
         showOneByOne(str);
         info.style.color = color[Math.floor(Math.random() * 10)];
     }
-
 }
 
 function initInfo() {
@@ -392,15 +390,15 @@ function showOneByOne(str){
     var show = function() {
       info.innerHTML = (str.slice(0,i++));
       if(i <= str.length) {
-          timer = setTimeout(show, 200);
+          timer = setTimeout(show, 150);
       }
     };
     
     show();
 }
-
 addEvent(avatarsWrapper, 'mouseover', showInfo);
 addEvent(avatarsWrapper, 'mouseout', initInfo);
 </script>
+<script src="js/background.js"></script>
 </body>
 </html>
