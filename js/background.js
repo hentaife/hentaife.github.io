@@ -25,7 +25,7 @@ function init(){
     can.width = w;
     can.height =h;
 
-    starPic.src = 'images/star.png';
+    starPic.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAHBAMAAABTkbifAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAwUExURQAAAP///8/Pz9LS0tzc3Ojo6OXl5fr6+ubm5u3t7fv7+/7+/vLy8vj4+PT09Ozs7M/J6VwAAAAFdFJOUwBU6Oz38OfEAwAAAFtJREFUCNdjYIACZiBOgFDIACjEysDA+BFMgXhgwAQUSmRgiHVgkK8XYPANYGCcCBZkYNBQYMhdk2B6e6vZ2bpjpruvGuSsTQAJQvRMBOuRgepJhOrBbQ8utwEA8eIThYQBb8AAAAAASUVORK5CYII=';
 
     for(var i = 0;i < num;i++){
         stars[i] = new starObj();
